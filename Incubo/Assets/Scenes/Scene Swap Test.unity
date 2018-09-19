@@ -734,7 +734,7 @@ Prefab:
     - target: {fileID: 114356595404711494, guid: c884b109532d9b946b110430e734e67d,
         type: 2}
       propertyPath: levelName
-      value: SampleScene
+      value: Door Open Test
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c884b109532d9b946b110430e734e67d, type: 2}

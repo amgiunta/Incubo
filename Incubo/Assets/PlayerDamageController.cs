@@ -15,17 +15,17 @@ public class PlayerDamageController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        currentHealth = maxHealth;
+        currentHealth = 0;
 	}
 
     //Called by Damagers
     public void TakeDamage(float damageDealt)
     {
-        currentHealth -= damageDealt;
-        Debug.Log("Health: " + currentHealth + "/" + maxHealth);
+        currentHealth += damageDealt;
+        Debug.Log("Fear: " + currentHealth + "/" + maxHealth);
         //healthBar.value = currentHealth;
 
-        if (currentHealth <= 0 && !dead)
+        if (currentHealth >= maxHealth && !dead)
         {
             //DeathText.gameObject.SetActive(true);
             //DeathText.text = "You Died";
