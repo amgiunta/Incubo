@@ -1,0 +1,16 @@
+﻿<Properties StartupConfiguration="{CB6A8462-5A7A-91CB-8A4C-881F6B64697C}|">
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/PlayerController.cs">
+    <Files>
+      <File FileName="Assets/PlayerController.cs" Line="25" Column="27" />
+      <File FileName="Assets/DoorTrigger.cs" Line="25" Column="28" />
+      <File FileName="Assets/Switchscript.cs" Line="17" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>

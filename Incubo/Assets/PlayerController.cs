@@ -2,21 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour
+{
     GameObject Player;
     public float movespeed;
     public float jumpheight;
     public float dashwait;
     public float dashspeed;
     private bool isgrounded = true;
-    public float slidespeed;
-    public float doortime;
-    private bool closed = true;
-    private bool reclosed = true;
-    public GameObject slidingDoor;
     Rigidbody2D rb;
     // Use this for initialization
-    void Start() {
+    void Start()
+    {
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -44,28 +41,6 @@ public class PlayerController : MonoBehaviour {
         }
         if (Input.GetKeyDown("w") && isgrounded == true)
             rb.AddForce(transform.up * jumpheight);
-
-        if (closed == false)
-        {
-            StartCoroutine(DoorStop());
-
-        }
-        /*if (reclosed == false)
-        {
-            StartCoroutine(DoorReturn());
-        }
-    IEnumerator DoorReturn()
-    {
-        slidingDoor.transform.position = new Vector2(slidingDoor.transform.position.x, slidingDoor.transform.position.y - slidespeed);
-        yield return new WaitForSeconds(doortime);
-        slidingDoor.transform.position = new Vector2(slidingDoor.transform.position.x, slidingDoor.transform.position.y);
-    }*/
-    }
-    IEnumerator DoorStop()
-    {
-        slidingDoor.transform.position = new Vector2(slidingDoor.transform.position.x, slidingDoor.transform.position.y + slidespeed);
-        yield return new WaitForSeconds(doortime);
-        slidingDoor.transform.position = new Vector2(slidingDoor.transform.position.x, slidingDoor.transform.position.y);
     }
     IEnumerator dashtime()
     {
@@ -80,16 +55,6 @@ public class PlayerController : MonoBehaviour {
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-            isgrounded = false;
+        isgrounded = false;
     }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Switch" && Input.GetKey("s"))
-            closed = false;
-    }
-    /*private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "ClosingSwitch")
-            reclosed = false;
-    }*/
 }
