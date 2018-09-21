@@ -113,60 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &410926634
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 410926636}
-  - component: {fileID: 410926635}
-  m_Layer: 0
-  m_Name: ClosingSwitch
-  m_TagString: ClosingSwitch
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!61 &410926635
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 410926634}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!4 &410926636
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 410926634}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.81, y: -2.11, z: -0.1646429}
-  m_LocalScale: {x: 4.103214, y: 5.422536, z: 0.96831}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,7 +161,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7.201453
+  orthographic size: 6.435855
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -238,8 +184,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
-  m_LocalScale: {x: 1.2623, y: 1.2623, z: 1.2623}
+  m_LocalPosition: {x: 0, y: 0.29, z: -10}
+  m_LocalScale: {x: 1.1394758, y: 1.7874131, z: 1.7874131}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -254,6 +200,7 @@ GameObject:
   - component: {fileID: 636424855}
   - component: {fileID: 636424854}
   - component: {fileID: 636424856}
+  - component: {fileID: 636424857}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -345,6 +292,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &636424857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 636424853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 044ab829c3e5ed745ae9e6282985bb9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slidedistance: 10
+  player: {fileID: 895763036}
 --- !u!1 &895763031
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,10 +442,7 @@ MonoBehaviour:
   movespeed: 0.25
   jumpheight: 800
   dashwait: 0.25
-  dashspeed: 400
-  slidespeed: 0.25
-  doortime: 1
-  slidingDoor: {fileID: 636424853}
+  dashspeed: 450
 --- !u!1 &1226472653
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,6 +528,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1837494103}
   - component: {fileID: 1837494102}
+  - component: {fileID: 1837494104}
   m_Layer: 0
   m_Name: switch
   m_TagString: Switch
@@ -610,12 +568,24 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1837494101}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.81, y: -3.51, z: -0.1646429}
-  m_LocalScale: {x: 1.7281985, y: 2.8083227, z: 1.7281985}
+  m_LocalPosition: {x: 10.23, y: -3.51, z: -0.1646429}
+  m_LocalScale: {x: 14.646483, y: 2.8083227, z: 1.7281985}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1837494104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1837494101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81aeb5c71d9a64677b92217556b627ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger: {fileID: 636424857}
 --- !u!1 &1880663766
 GameObject:
   m_ObjectHideFlags: 0
