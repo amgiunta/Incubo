@@ -19,7 +19,6 @@ public class MelleeWeapon : Weapon {
         foreach (Character character in inRange) {
             character.TakeDamage(user.GetDamage(damageMultiplier));
             Debug.DrawLine(user.transform.position, character.transform.position, Color.red, 1f);
-            Debug.Log("hit object: " + character.gameObject);
         }
         base.Attack();
     }
@@ -30,7 +29,6 @@ public class MelleeWeapon : Weapon {
     /// <returns>A list of valid characters.</returns>
     protected List<Character> InRange() {
         Collider2D[] objects = Physics2D.OverlapCircleAll(transform.position, range, layerMask);
-        Debug.Log(objects.Length + " in range " + range);
 
         return CharFromHit(objects);
     }
@@ -48,8 +46,6 @@ public class MelleeWeapon : Weapon {
                 characters.Add(hit.transform.GetComponent<Character>());
             }
         }
-
-        Debug.Log(characters.Count);
 
         return characters;
     }

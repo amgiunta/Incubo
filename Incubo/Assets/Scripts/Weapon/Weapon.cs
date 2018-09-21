@@ -28,17 +28,22 @@ public class Weapon : MonoBehaviour {
     /// The distance the weapon detects if melee or raycast projectile, and the force used to launch a physics based projectile.
     /// </summary>
     public float range;
-
-    [HideInInspector]
+    
     /// <summary>
     /// The character using this weapon.
     /// </summary>
-    public Character user;
+    protected Character user;
 
-    private void Start()
+    private void Awake()
     {
         user = GetComponentInParent<Character>();
     }
+
+    /// <summary>
+    /// Set the user of this weapon to a specific Character.
+    /// </summary>
+    /// <param name="user">The Character that should be using this weapon.</param>
+    public void SetUser(Character user) { this.user = user; }
 
     /// <summary>
     /// Mutatable function to do weapon specific executions when attacking.

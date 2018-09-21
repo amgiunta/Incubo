@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4833455664934322}
   - component: {fileID: 212847975077445714}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 50886470057116912}
   - component: {fileID: 58112852521044436}
   - component: {fileID: 114709114736683414}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TestProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,6 @@ MonoBehaviour:
   tagMask: []
   damageMultiplier: 0
   range: 10
-  user: {fileID: 0}
 --- !u!212 &212847975077445714
 SpriteRenderer:
   m_ObjectHideFlags: 1

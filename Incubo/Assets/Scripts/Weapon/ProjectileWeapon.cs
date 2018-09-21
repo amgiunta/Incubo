@@ -58,12 +58,11 @@ public class ProjectileWeapon : Weapon {
     /// Creates and launches a projectile to damage other valid characters in range. Uses range as a force scalar.
     /// </summary>
     private void ProjectileAttack() {
-        GameObject projectileObj = Instantiate<GameObject>(projectilePrefab, muzzle.position, muzzle.rotation, user.transform);
+        GameObject projectileObj = Instantiate<GameObject>(projectilePrefab, muzzle.position, muzzle.rotation);
         Rigidbody2D projectileRB = projectileObj.GetComponent<Rigidbody2D>();
-        Weapon projectile = projectileObj.GetComponent<Projectile>();
-        projectile.damageMultiplier = damageMultiplier;
-        projectile.layerMask = layerMask;
-        projectile.tagMask = tagMask;
+        Projectile projectile = projectileObj.GetComponent<Projectile>();
+        projectile.InitializeProjectile(this);
+        projectile.SetUser(user);
 
         projectileRB.AddForce(muzzle.forward * range);
     }

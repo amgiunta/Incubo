@@ -24,6 +24,12 @@ public class Projectile : MelleeWeapon {
         }
     }
 
+    public void InitializeProjectile(Weapon data) {
+        damageMultiplier = data.damageMultiplier;
+        layerMask = data.layerMask;
+        tagMask = data.tagMask;
+    }
+
     /// <summary>
     /// Finds all valid Characters in range of the projectile's effect and inflicts damage on them.
     /// </summary>
