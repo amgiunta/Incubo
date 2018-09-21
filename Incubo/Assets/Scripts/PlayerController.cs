@@ -15,9 +15,22 @@ public class PlayerController : MonoBehaviour {
     private bool reclosed = true;
     public GameObject slidingDoor;
     Rigidbody2D rb;
+
+    // Adam Giunta [9-20-18] <amgiunta.2016@mymail.becker.edu>
+    public Weapon weapon;
+    GameObject hand;
+
     // Use this for initialization
     void Start() {
         rb = GetComponent<Rigidbody2D>();
+        hand = transform.Find("Hand").gameObject;
+        weapon = hand.GetComponentInChildren<Weapon>();
+    }
+
+    // Adam Giunta [9-20-18] <amgiunta.2016@mymail.becker.edu>
+    private void Update()
+    {
+        if (Input.GetButtonDown("Fire1")) { weapon.Attack(); }
     }
 
     // Update is called once per frame
