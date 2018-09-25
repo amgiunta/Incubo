@@ -3,42 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerDamageController : MonoBehaviour {
-    
-    public float maxHealth = 100f;
+public class PlayerDamageController : Character {
+
     //Remove Comments from UI Stuff
     //public Slider healthBar;
     //public Text DeathText;
 
-    float currentHealth;
-    bool dead = false;
+    public float fearTickTime = 1f;
+
+    //float currentHealth;
+    bool inFearZone;
 
 	// Use this for initialization
 	void Start () {
-        currentHealth = 0;
+        currentFear = 0;
+        inFearZone = false;
+        InvokeRepeating("FearTicker", 0f, fearTickTime);
 	}
 
-    //Called by Damagers
-    public void TakeDamage(float damageDealt)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        currentHealth += damageDealt;
-        Debug.Log("Fear: " + currentHealth + "/" + maxHealth);
-        //healthBar.value = currentHealth;
-
-        if (currentHealth >= maxHealth && !dead)
+        if (collision.CompareTag("FearZone"))
         {
-            //DeathText.gameObject.SetActive(true);
-            //DeathText.text = "You Died";
-            //Other Stuff Triggered by Death
-
-            Debug.Log("You Died");
-            dead = true;
-            Time.timeScale = 0;
+            inFearZone = true;
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    void FearTicker()
+    {
+        if(inFearZone)
+        {
+            //Note: Change to variable when avalable
+            TakeDamage(1);
+            inFearZone = false;
+        }
+    }
+
+    // Update is called once per frame
+    void Update () {
 
         //Testing Code
 		if(Input.GetKeyDown("j"))

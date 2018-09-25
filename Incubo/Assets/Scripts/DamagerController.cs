@@ -5,7 +5,9 @@ using UnityEngine;
 public class DamagerController : MonoBehaviour {
 
     //public PlayerDamageController damaged;
-    public float damageDealt = 10;
+    public int damageDealt = 10;
+    public float invulnTime = 1;
+    bool invulnWindow;
 
     //For Solid Objects
     private void OnCollisionEnter2D(Collision2D collision)
@@ -13,7 +15,12 @@ public class DamagerController : MonoBehaviour {
         if(collision.gameObject.CompareTag("Player"))
         {
             //damaged.TakeDamage(damageDealt);
-            collision.gameObject.GetComponent<PlayerDamageController>().TakeDamage(damageDealt);
+            if(invulnWindow == false)
+            {
+                collision.gameObject.GetComponent<PlayerDamageController>().TakeDamage(damageDealt);
+                invulnWindow = true;
+                StartCoroutine(playerInvulnWindow());
+            }
         }
     }
     
@@ -24,7 +31,18 @@ public class DamagerController : MonoBehaviour {
         if (collision.gameObject.CompareTag("Player"))
         {
             //damaged.TakeDamage(damageDealt);
-            collision.gameObject.GetComponent<PlayerDamageController>().TakeDamage(damageDealt);
+            if (invulnWindow == false)
+            {
+                collision.gameObject.GetComponent<PlayerDamageController>().TakeDamage(damageDealt);
+                invulnWindow = true;
+                StartCoroutine(playerInvulnWindow());
+            }
         }
+    }
+
+    IEnumerator playerInvulnWindow()
+    {
+        yield return new WaitForSeconds(invulnTime);
+        invulnWindow = false;
     }
 }
