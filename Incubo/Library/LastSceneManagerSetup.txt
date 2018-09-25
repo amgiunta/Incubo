@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< Updated upstream
 - path: Assets/Scenes/Combat Test.unity
+=======
+- path: Assets/Scenes/Door Open Test.unity
+>>>>>>> Stashed changes
   isLoaded: 1
   isActive: 1
