@@ -9,8 +9,11 @@ public class PlayerDamageController : Character {
     //public Slider healthBar;
     //public Text DeathText;
 
+    public Image dialArrow;
+
     public float fearTickTime = 1f;
     public int fearRestoreTick = 1;
+    public float enemyDistanceCheck = 10;
 
     //float currentHealth;
     bool inFearZone;
@@ -47,7 +50,18 @@ public class PlayerDamageController : Character {
             TakeDamage(1);
             inFearZone = false;
         }
-        else if(GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && currentFear > 0)
+        float dist = enemyDistanceCheck + 1;
+        GameObject[] enemyList = GameObject.FindGameObjectsWithTag("Enemy");
+        if (enemyList.Length != 0)
+        {
+            foreach(GameObject enemy in enemyList)
+            {
+                float tempDist = Vector3.Distance(enemy.transform.position, transform.position);
+                if(tempDist < dist) { dist = tempDist; }
+            }
+        }
+        Debug.Log(dist);
+        if (dist > enemyDistanceCheck)
         {
             if (currentFear - fearRestoreTick < 0)
             {
@@ -70,5 +84,9 @@ public class PlayerDamageController : Character {
         {
             TakeDamage(100);
         }
+
+        float dialAngle = -(((float)currentFear/(float)maxFear)*180) - 45f;
+        //Debug.Log((currentFear/180f)*100f);
+        dialArrow.transform.eulerAngles = new Vector3(0, 0, dialAngle);
 	}
 }

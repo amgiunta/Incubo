@@ -69,12 +69,12 @@
     <Compile Include="Assets\Scripts\PlayerDamageController.cs" />
     <Compile Include="Assets\Scripts\Scene\LoadTrigger.cs" />
     <Compile Include="Assets\Scripts\startGame.cs" />
+    <Compile Include="Assets\Scripts\Switchscript.cs" />
     <Compile Include="Assets\Scripts\Temporary\TempPlayerControls.cs" />
     <Compile Include="Assets\Scripts\Weapon\MelleeWeapon.cs" />
     <Compile Include="Assets\Scripts\Weapon\Projectile.cs" />
     <Compile Include="Assets\Scripts\Weapon\ProjectileWeapon.cs" />
     <Compile Include="Assets\Scripts\Weapon\Weapon.cs" />
-    <Compile Include="Assets\Switchscript.cs" />
     <None Include="Assets\Resources\Sprites\temp.txt" />
     <None Include="Assets\Resources\Prefabs\temp.txt" />
     <Reference Include="UnityEditor.StandardEvents">
