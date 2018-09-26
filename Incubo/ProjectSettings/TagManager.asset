@@ -4,10 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - FearZone
-  - Enemy
-  - Collect
   - Environment
+  - Switch
   layers:
   - Default
   - TransparentFX
