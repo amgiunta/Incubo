@@ -28,7 +28,13 @@ public class Weapon : MonoBehaviour {
     /// The distance the weapon detects if melee or raycast projectile, and the force used to launch a physics based projectile.
     /// </summary>
     public float range;
-    
+    [Tooltip("The amount of times this weapon can attack per second.")]
+    /// <summary>
+    /// The amount of times this weapon can attack per second.
+    /// </summary>
+    public float fireRate;
+
+    protected bool canFire = true;
     /// <summary>
     /// The character using this weapon.
     /// </summary>
@@ -48,10 +54,19 @@ public class Weapon : MonoBehaviour {
     /// <summary>
     /// Mutatable function to do weapon specific executions when attacking.
     /// </summary>
-    public virtual void Attack() { }
+    public virtual void Attack() {
+        OnAttack();
+        StartCoroutine(AttackTimer());
+    }
 
     /// <summary>
     /// Called immediatly after an attack. Mutatable to do weapon specific actions.
     /// </summary>
     public virtual void OnAttack() { }
+
+    private IEnumerator AttackTimer() {
+        canFire = false;
+        yield return new WaitForSeconds(1 / fireRate);
+        canFire = true;
+    }
 }

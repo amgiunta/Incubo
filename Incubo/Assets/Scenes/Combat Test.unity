@@ -615,13 +615,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e401fc13c33be34598502f1588a9123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swapped: 0
   movespeed: 1
   jumpheight: 800
   dashwait: 0
   dashspeed: 0
-  slidespeed: 0
-  doortime: 0
-  slidingDoor: {fileID: 0}
   weapon: {fileID: 0}
 --- !u!58 &1513541356
 CircleCollider2D:
@@ -773,7 +771,7 @@ GameObject:
   - component: {fileID: 1575749514}
   m_Layer: 0
   m_Name: _Environment
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -933,7 +931,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1926042119}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 170878c9317ebdf41b236314bebaede3, type: 3}
+  m_Script: {fileID: 11500000, guid: bbdc24c93c7e50e4c9f0f8029c3d0f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   layerMask:
@@ -942,8 +940,8 @@ MonoBehaviour:
   tagMask:
   - Enemy
   damageMultiplier: 1
-  range: 400
-  user: {fileID: 0}
+  range: 6000
+  fireRate: 2
   projectileType: 1
   muzzle: {fileID: 1280566671}
   projectilePrefab: {fileID: 1138235889933504, guid: 05d59fed13b79d340a4ed275ced9cfab,
