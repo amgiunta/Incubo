@@ -8,16 +8,19 @@ using UnityEngine;
 /// </summary>
 public class Character : MonoBehaviour {
 
+    // [2018-09-25] Ben Shackman <bshackman@protonmail.com>
+    // Altered Variable names to match fear Mechanics
     [Tooltip("The maximum health value for the character.")]
     /// <summary>
     /// The maximum health value of the character.
     /// </summary>
-    public int maxHealth;
+    public int maxFear;
     [Tooltip("The health value of the character at the current state.")]
     /// <summary>
     /// The health value of the character at the current state.
     /// </summary>
-    public int currentHealth;
+    // [2018-09-25] Ben Shackman <bshackman@protonmail.com>
+    public int currentFear;
     [Tooltip("The base damage amount that the character can deal.")]
     /// <summary>
     /// The base damage amount that the character can deal.
@@ -60,8 +63,12 @@ public class Character : MonoBehaviour {
     /// </summary>
     /// <param name="damage">The amount of damage to inflict.</param>
     public virtual void TakeDamage(int damage) {
-        currentHealth -= damage;
-        if (currentHealth <= 0) { Kill(); }
+        // [2018-09-25] Ben Shackman <bshackman@protonmail.com>
+        // Also changed death to require current fear to be >= maxFear
+        currentFear += damage;
+        if (currentFear >= maxFear) { Kill(); }
+        // Added temp debug.log function to show health
+        Debug.Log(currentFear + "/" + maxFear);
     }
 
     /// <summary>

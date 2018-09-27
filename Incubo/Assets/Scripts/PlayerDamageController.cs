@@ -3,42 +3,77 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerDamageController : MonoBehaviour {
-    
-    public float maxHealth = 100f;
+public class PlayerDamageController : Character {
+
     //Remove Comments from UI Stuff
     //public Slider healthBar;
     //public Text DeathText;
 
-    float currentHealth;
-    bool dead = false;
+    public Image dialArrow;
+
+    public float fearTickTime = 1f;
+    public int fearRestoreTick = 1;
+    public float enemyDistanceCheck = 10;
+
+    //float currentHealth;
+    bool inFearZone;
 
 	// Use this for initialization
 	void Start () {
-        currentHealth = 0;
+        currentFear = 0;
+        inFearZone = false;
+        InvokeRepeating("FearTicker", 0f, fearTickTime);
 	}
 
-    //Called by Damagers
-    public void TakeDamage(float damageDealt)
+    //Temp Code to test Enemy Death
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        currentHealth += damageDealt;
-        Debug.Log("Fear: " + currentHealth + "/" + maxHealth);
-        //healthBar.value = currentHealth;
-
-        if (currentHealth >= maxHealth && !dead)
+        if(collision.gameObject.CompareTag("Enemy"))
         {
-            //DeathText.gameObject.SetActive(true);
-            //DeathText.text = "You Died";
-            //Other Stuff Triggered by Death
-
-            Debug.Log("You Died");
-            dead = true;
-            Time.timeScale = 0;
+            Destroy(collision.gameObject);
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("FearZone"))
+        {
+            inFearZone = true;
+        }
+    }
+
+    void FearTicker()
+    {
+        if(inFearZone)
+        {
+            //Note: Change to variable when avalable
+            TakeDamage(1);
+            inFearZone = false;
+        }
+        float dist = enemyDistanceCheck + 1;
+        GameObject[] enemyList = GameObject.FindGameObjectsWithTag("Enemy");
+        if (enemyList.Length != 0)
+        {
+            foreach(GameObject enemy in enemyList)
+            {
+                float tempDist = Vector3.Distance(enemy.transform.position, transform.position);
+                if(tempDist < dist) { dist = tempDist; }
+            }
+        }
+        Debug.Log(dist);
+        if (dist > enemyDistanceCheck)
+        {
+            if (currentFear - fearRestoreTick < 0)
+            {
+                int excessRestore = -(currentFear - fearRestoreTick);
+                TakeDamage(-(fearRestoreTick - excessRestore));
+            }
+            else { TakeDamage(-fearRestoreTick); }
+        }
+    }
+
+    // Update is called once per frame
+    void Update () {
 
         //Testing Code
 		if(Input.GetKeyDown("j"))
@@ -49,5 +84,9 @@ public class PlayerDamageController : MonoBehaviour {
         {
             TakeDamage(100);
         }
+
+        float dialAngle = -(((float)currentFear/(float)maxFear)*180) - 45f;
+        //Debug.Log((currentFear/180f)*100f);
+        dialArrow.transform.eulerAngles = new Vector3(0, 0, dialAngle);
 	}
 }

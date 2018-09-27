@@ -5,11 +5,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     GameObject Characters;
-    public int swapped = 0;
     public float movespeed;
     public float jumpheight;
-    public float dashwait;
-    public float dashspeed;
+    //public float dashwait;
+    //public float dashspeed;
     private bool isgrounded = true;
     Rigidbody2D rb;
 
@@ -39,33 +38,30 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector2(transform.position.x - movespeed, transform.position.y);
             /*could also do trasnform.position instead, design decision tho, that is more of a teleport*/
         }
-        if (Input.GetKeyDown("space") && Input.GetKey("a") && isgrounded == false)
+        /*if (Input.GetKeyDown("space") && Input.GetKey("a") && isgrounded == false)
         {
             rb.AddForce(new Vector2(-dashspeed, 0));
             StartCoroutine(dashtime());
-        }
+        }*/
         if (Input.GetKey("d"))
         {
             transform.position = new Vector2(transform.position.x + movespeed, transform.position.y);
         }
-        if (Input.GetKeyDown("space") && Input.GetKey("d") && isgrounded == false)
+        /*if (Input.GetKeyDown("space") && Input.GetKey("d") && isgrounded == false)
         {
             rb.AddForce(new Vector2(dashspeed, 0));
             StartCoroutine(dashtime());
-        }
+        }*/
         if (Input.GetKeyDown("w") && isgrounded == true)
             rb.AddForce(transform.up * jumpheight);
-
-        if (Input.GetKeyDown("r"))
-            swap();
     }
-    IEnumerator dashtime()
+    /*IEnumerator dashtime()
     {
         rb.constraints = RigidbodyConstraints2D.FreezePositionY;
         yield return new WaitForSeconds(dashwait);
         rb.constraints = RigidbodyConstraints2D.FreezePositionX;
         rb.constraints = RigidbodyConstraints2D.None;
-    }
+    }*/
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Environment"))
@@ -74,33 +70,6 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         isgrounded = false;
-    }
-    void swap()
-    {
-        if (swapped == 0)
-        {
-            gameObject.transform.GetChild(0).gameObject.SetActive(false);
-            gameObject.transform.GetChild(1).gameObject.SetActive(true);
-            swapped ++;
-        }
-        else if (swapped == 1)
-        {
-            gameObject.transform.GetChild(1).gameObject.SetActive(false);
-            gameObject.transform.GetChild(2).gameObject.SetActive(true);
-            swapped = 2;
-        }
-        else if (swapped == 2)
-        {
-            gameObject.transform.GetChild(2).gameObject.SetActive(false);
-            gameObject.transform.GetChild(3).gameObject.SetActive(true);
-            swapped = 3;
-        }
-        else if (swapped == 3)
-        {
-            gameObject.transform.GetChild(3).gameObject.SetActive(false);
-            gameObject.transform.GetChild(0).gameObject.SetActive(true);
-            swapped = 0;
-        }
     }
 
 }
