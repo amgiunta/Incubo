@@ -10,6 +10,7 @@ public class PlayerDamageController : Character {
     //public Text DeathText;
 
     public Image dialArrow;
+    public DialScript dialController;
 
     public float fearTickTime = 1f;
     public int fearRestoreTick = 1;
@@ -24,6 +25,13 @@ public class PlayerDamageController : Character {
         inFearZone = false;
         InvokeRepeating("FearTicker", 0f, fearTickTime);
 	}
+
+    public override void TakeDamage(int damage)
+    {
+        base.TakeDamage(damage);
+        float dialAngle = (((float)currentFear / (float)maxFear) * 180);
+        dialController.SetDialAngle(dialAngle);
+    }
 
     //Temp Code to test Enemy Death
     private void OnCollisionEnter2D(Collision2D collision)
@@ -72,6 +80,7 @@ public class PlayerDamageController : Character {
         }
     }
 
+
     // Update is called once per frame
     void Update () {
 
@@ -84,9 +93,5 @@ public class PlayerDamageController : Character {
         {
             TakeDamage(100);
         }
-
-        float dialAngle = -(((float)currentFear/(float)maxFear)*180) - 45f;
-        //Debug.Log((currentFear/180f)*100f);
-        dialArrow.transform.eulerAngles = new Vector3(0, 0, dialAngle);
 	}
 }

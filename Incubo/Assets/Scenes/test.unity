@@ -251,11 +251,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e401fc13c33be34598502f1588a9123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swapped: 0
   movespeed: 0.1
   jumpheight: 200
-  dashwait: 0
-  dashspeed: 0
   weapon: {fileID: 0}
 --- !u!61 &63584298
 BoxCollider2D:
@@ -298,6 +295,7 @@ MonoBehaviour:
   baseDamage: 0
   damageMultiplier: 0
   dialArrow: {fileID: 95477344}
+  dialController: {fileID: 1712022021}
   fearTickTime: 1
   fearRestoreTick: 5
   enemyDistanceCheck: 5
@@ -1580,6 +1578,7 @@ GameObject:
   - component: {fileID: 1712022018}
   - component: {fileID: 1712022020}
   - component: {fileID: 1712022019}
+  - component: {fileID: 1712022021}
   m_Layer: 5
   m_Name: FearDial
   m_TagString: Untagged
@@ -1640,6 +1639,20 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1712022017}
   m_CullTransparentMesh: 0
+--- !u!114 &1712022021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1712022017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef1ee252f98cea14693e09606909003c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialArrow: {fileID: 95477344}
+  arrowOffsetAngle: -45
+  rotateSpeed: 0.4
 --- !u!1 &1757222500
 GameObject:
   m_ObjectHideFlags: 0
