@@ -294,11 +294,13 @@ MonoBehaviour:
   currentFear: 0
   baseDamage: 0
   damageMultiplier: 0
-  dialArrow: {fileID: 95477344}
+  fearStage: 0
   dialController: {fileID: 1712022021}
   fearTickTime: 1
   fearRestoreTick: 5
   enemyDistanceCheck: 5
+  scaredMoveMod: 1.2
+  terrifiedMoveMod: 1.4
 --- !u!1 &95477342
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,7 +312,7 @@ GameObject:
   - component: {fileID: 95477345}
   - component: {fileID: 95477344}
   m_Layer: 5
-  m_Name: Arrow
+  m_Name: DialArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1650,7 +1652,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef1ee252f98cea14693e09606909003c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialArrow: {fileID: 95477344}
   arrowOffsetAngle: -45
   rotateSpeed: 0.4
 --- !u!1 &1757222500
