@@ -1,6 +1,11 @@
 ﻿<Properties StartupConfiguration="{CB6A8462-5A7A-91CB-8A4C-881F6B64697C}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CharaterSwap.cs">
+    <Files>
+      <File FileName="Assets/PortraitChanger.cs" Line="13" Column="3" />
+      <File FileName="Assets/Scripts/CharaterSwap.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
