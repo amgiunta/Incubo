@@ -33,16 +33,29 @@ public class Weapon : MonoBehaviour {
     /// The amount of times this weapon can attack per second.
     /// </summary>
     public float fireRate;
+    /// <summary>
+    /// The sound effect that plays when the weapon is used.
+    /// </summary>
+    [Tooltip("The sound effect that plays when the weapon is used.")]
+    public AudioClip useSound;
 
+    /// <summary>
+    /// True if the weapon is able to be used. False if it is not.
+    /// </summary>
     protected bool canFire = true;
     /// <summary>
     /// The character using this weapon.
     /// </summary>
     protected Character user;
+    /// <summary>
+    /// The Animator component that is on the weapon gameobject.
+    /// </summary>
+    protected Animator anim;
 
     private void Awake()
     {
         user = GetComponentInParent<Character>();
+        anim = GetComponent<Animator>();
     }
 
     /// <summary>
@@ -55,6 +68,8 @@ public class Weapon : MonoBehaviour {
     /// Mutatable function to do weapon specific executions when attacking.
     /// </summary>
     public virtual void Attack() {
+        if (useSound) 
+            AudioSource.PlayClipAtPoint(useSound, transform.position);
         OnAttack();
         StartCoroutine(AttackTimer());
     }

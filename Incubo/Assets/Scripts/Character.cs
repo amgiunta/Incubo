@@ -40,6 +40,7 @@ public class Character : MonoBehaviour {
     /// A callback function used by the character script to run code after taking damage.
     /// </summary>
     public OnTakeDamage onTakeDamage;
+    public float FearMultiplier = 1;
 
     /// <summary>
     /// Gets the damage that this character should deal based off the base damage, and in-class damage mutiplier.

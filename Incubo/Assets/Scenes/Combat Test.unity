@@ -340,7 +340,7 @@ Transform:
   m_LocalPosition: {x: 4.8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1926042120}
+  - {fileID: 1400644651}
   m_Father: {fileID: 1513541357}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -553,38 +553,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17a05cb888c0394e9715b2754979e65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 100
+  maxFear: 0
+  currentFear: 0
   baseDamage: 0
   damageMultiplier: 0
---- !u!1 &1280566670
+  FearMultiplier: 1
+--- !u!1 &1400644650
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1280566671}
+  - component: {fileID: 1400644651}
+  - component: {fileID: 1400644652}
   m_Layer: 8
-  m_Name: muzzle
+  m_Name: BB Gun
   m_TagString: Untagged
-  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1280566671
+--- !u!4 &1400644651
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1280566670}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 3.4, y: 0, z: 0}
+  m_GameObject: {fileID: 1400644650}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1926042120}
+  m_Children:
+  - {fileID: 1751978802}
+  m_Father: {fileID: 263627789}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1400644652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1400644650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 170878c9317ebdf41b236314bebaede3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  tagMask:
+  - Enemy
+  damageMultiplier: 1
+  range: 1000
+  fireRate: 1
+  useSound: {fileID: 0}
+  projectileType: 1
+  muzzle: {fileID: 1751978802}
+  projectilePrefab: {fileID: 1138235889933504, guid: 05d59fed13b79d340a4ed275ced9cfab,
+    type: 2}
 --- !u!1 &1513541354
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,11 +642,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e401fc13c33be34598502f1588a9123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swapped: 0
   movespeed: 1
   jumpheight: 800
-  dashwait: 0
-  dashspeed: 0
   weapon: {fileID: 0}
 --- !u!58 &1513541356
 CircleCollider2D:
@@ -682,10 +706,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17a05cb888c0394e9715b2754979e65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 100
+  maxFear: 0
+  currentFear: 0
   baseDamage: 10
   damageMultiplier: 0
+  FearMultiplier: 1
 --- !u!1 &1526091402
 GameObject:
   m_ObjectHideFlags: 0
@@ -893,56 +918,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1926042119
+--- !u!1 &1751978801
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1926042120}
-  - component: {fileID: 1926042121}
+  - component: {fileID: 1751978802}
   m_Layer: 8
-  m_Name: Weapon
+  m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1926042120
+--- !u!4 &1751978802
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1926042119}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 1751978801}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 1.31, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1280566671}
-  m_Father: {fileID: 263627789}
+  m_Children: []
+  m_Father: {fileID: 1400644651}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1926042121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1926042119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbdc24c93c7e50e4c9f0f8029c3d0f16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 256
-  tagMask:
-  - Enemy
-  damageMultiplier: 1
-  range: 6000
-  fireRate: 2
-  projectileType: 1
-  muzzle: {fileID: 1280566671}
-  projectilePrefab: {fileID: 1138235889933504, guid: 05d59fed13b79d340a4ed275ced9cfab,
-    type: 2}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
