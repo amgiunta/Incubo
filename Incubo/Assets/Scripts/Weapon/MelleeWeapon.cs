@@ -11,17 +11,7 @@ public class MelleeWeapon : Weapon {
     /// <summary>
     /// Attack any valid character within a radius of the player.
     /// </summary>
-    public override void Attack()
-    {
-        List<Character> inRange = new List<Character>();
-        inRange = InRange();
-
-        foreach (Character character in inRange) {
-            character.TakeDamage(user.GetDamage(damageMultiplier));
-            Debug.DrawLine(user.transform.position, character.transform.position, Color.red, 1f);
-        }
-        base.Attack();
-    }
+    public override void Attack() { base.Attack(); }
 
     /// <summary>
     /// Get a list of all characters within a certain radius of this character.

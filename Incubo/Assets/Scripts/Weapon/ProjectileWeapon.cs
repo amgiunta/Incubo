@@ -28,8 +28,8 @@ public class ProjectileWeapon : Weapon {
     /// <summary>
     /// Launches the projectile, or casts a ray to damage other characters.
     /// </summary>
-    public override void Attack()
-    {
+    public override void Attack() {
+        if (!canFire) { return; }
         if (projectileType == ProjectileType.Instant) { RaycastAttack(); }
         else if (projectileType == ProjectileType.Standard) { ProjectileAttack(); }
         base.Attack();

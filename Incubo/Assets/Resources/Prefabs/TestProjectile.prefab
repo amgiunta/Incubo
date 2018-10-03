@@ -124,6 +124,7 @@ MonoBehaviour:
   tagMask: []
   damageMultiplier: 0
   range: 10
+  fireRate: 0
 --- !u!212 &212847975077445714
 SpriteRenderer:
   m_ObjectHideFlags: 1

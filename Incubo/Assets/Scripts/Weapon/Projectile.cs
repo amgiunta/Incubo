@@ -24,6 +24,10 @@ public class Projectile : MelleeWeapon {
         }
     }
 
+    /// <summary>
+    /// Initialize the projectile values based on values from a weapon object.
+    /// </summary>
+    /// <param name="data">The weapon object to copy from.</param>
     public void InitializeProjectile(Weapon data) {
         damageMultiplier = data.damageMultiplier;
         layerMask = data.layerMask;

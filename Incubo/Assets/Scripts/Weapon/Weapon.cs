@@ -28,15 +28,34 @@ public class Weapon : MonoBehaviour {
     /// The distance the weapon detects if melee or raycast projectile, and the force used to launch a physics based projectile.
     /// </summary>
     public float range;
-    
+    [Tooltip("The amount of times this weapon can attack per second.")]
+    /// <summary>
+    /// The amount of times this weapon can attack per second.
+    /// </summary>
+    public float fireRate;
+    /// <summary>
+    /// The sound effect that plays when the weapon is used.
+    /// </summary>
+    [Tooltip("The sound effect that plays when the weapon is used.")]
+    public AudioClip useSound;
+
+    /// <summary>
+    /// True if the weapon is able to be used. False if it is not.
+    /// </summary>
+    protected bool canFire = true;
     /// <summary>
     /// The character using this weapon.
     /// </summary>
     protected Character user;
+    /// <summary>
+    /// The Animator component that is on the weapon gameobject.
+    /// </summary>
+    protected Animator anim;
 
     private void Awake()
     {
         user = GetComponentInParent<Character>();
+        anim = GetComponent<Animator>();
     }
 
     /// <summary>
@@ -48,10 +67,21 @@ public class Weapon : MonoBehaviour {
     /// <summary>
     /// Mutatable function to do weapon specific executions when attacking.
     /// </summary>
-    public virtual void Attack() { }
+    public virtual void Attack() {
+        if (useSound) 
+            AudioSource.PlayClipAtPoint(useSound, transform.position);
+        OnAttack();
+        StartCoroutine(AttackTimer());
+    }
 
     /// <summary>
     /// Called immediatly after an attack. Mutatable to do weapon specific actions.
     /// </summary>
     public virtual void OnAttack() { }
+
+    private IEnumerator AttackTimer() {
+        canFire = false;
+        yield return new WaitForSeconds(1 / fireRate);
+        canFire = true;
+    }
 }
