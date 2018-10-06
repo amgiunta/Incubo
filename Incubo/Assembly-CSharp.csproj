@@ -71,29 +71,35 @@
     <Compile Include="Assets\Scripts\movement.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerDamageController.cs" />
+    <Compile Include="Assets\Scripts\Scene\GameManager.cs" />
     <Compile Include="Assets\Scripts\Scene\LoadTrigger.cs" />
     <Compile Include="Assets\Scripts\startGame.cs" />
     <Compile Include="Assets\Scripts\Switchscript.cs" />
     <Compile Include="Assets\Scripts\Temporary\TempPlayerControls.cs" />
+    <Compile Include="Assets\Scripts\UI\CustomButton.cs" />
+    <Compile Include="Assets\Scripts\UI\MenuMaster.cs" />
+    <Compile Include="Assets\Scripts\UI\QuitButton.cs" />
+    <Compile Include="Assets\Scripts\UI\UIMenu.cs" />
     <Compile Include="Assets\Scripts\Weapon\BBGun.cs" />
     <Compile Include="Assets\Scripts\Weapon\MelleeWeapon.cs" />
     <Compile Include="Assets\Scripts\Weapon\Projectile.cs" />
     <Compile Include="Assets\Scripts\Weapon\ProjectileWeapon.cs" />
+    <Compile Include="Assets\Scripts\Weapon\SpiderFangs.cs" />
     <Compile Include="Assets\Scripts\Weapon\Weapon.cs" />
     <Compile Include="Assets\TestGun.cs" />
     <None Include="Assets\Resources\Sprites\temp.txt" />
     <None Include="Assets\Resources\Prefabs\temp.txt" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Users/genlab/Documents/GitHub/Incubo/Incubo/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>E:/School/Semester 5/Game Studio fall 2018/incubo new/Incubo/Incubo/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/genlab/Documents/GitHub/Incubo/Incubo/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>E:/School/Semester 5/Game Studio fall 2018/incubo new/Incubo/Incubo/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/genlab/Documents/GitHub/Incubo/Incubo/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>E:/School/Semester 5/Game Studio fall 2018/incubo new/Incubo/Incubo/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/genlab/Documents/GitHub/Incubo/Incubo/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>E:/School/Semester 5/Game Studio fall 2018/incubo new/Incubo/Incubo/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -294,10 +300,10 @@
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
-      <HintPath>C:/Users/genlab/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
+      <HintPath>C:/Users/giunt/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.StandardEvents">
-      <HintPath>C:/Users/genlab/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/giunt/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/unity/mscorlib.dll</HintPath>

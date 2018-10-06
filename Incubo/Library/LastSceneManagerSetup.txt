@@ -1,5 +1,4 @@
 sceneSetups:
-- path: C:/Users/genlab/Desktop/INCUBO Level 2 (2)/INCUBO Level 2/INCUBO Level 2/Assets/INCUBO
-    Level 2/INCUBO Level 2.unity
+- path: Assets/Scenes/mainMenu.unity
   isLoaded: 1
   isActive: 1
