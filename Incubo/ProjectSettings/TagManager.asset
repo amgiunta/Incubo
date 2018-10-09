@@ -9,6 +9,10 @@ TagManager:
   - FearZone
   - Enemy
   - Collect
+  - Plague
+  - Projectile
+  - Centipede
+  - Minipede
   layers:
   - Default
   - TransparentFX
