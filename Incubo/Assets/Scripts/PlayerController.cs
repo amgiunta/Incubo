@@ -58,6 +58,12 @@ public class PlayerController : MonoBehaviour
         }*/
         if (Input.GetKeyDown("w") && isgrounded == true)
             rb.AddForce(transform.up * jumpheight);
+
+        // [10-5-18] Adam Giunta <amgiunta.2016@mymail.becker.edu> creating a pause button
+        if (Input.GetButtonDown("Cancel")) {
+            MenuMaster.menuMaster.ToggleMenu();
+            MenuMaster.menuMaster.OpenMenu("Pause Screen");
+        }
     }
     /*IEnumerator dashtime()
     {
