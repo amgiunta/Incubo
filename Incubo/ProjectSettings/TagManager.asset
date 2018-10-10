@@ -9,6 +9,7 @@ TagManager:
   - FearZone
   - Enemy
   - Collect
+  - SafeZone
   layers:
   - Default
   - TransparentFX
