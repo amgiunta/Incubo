@@ -8,7 +8,7 @@ using UnityEngine.UI;
 /// </summary>
 public class DialScript : MonoBehaviour {
 
-    public Image dialArrow;
+    Image dialArrow;
     [Tooltip("Angle at which the arrow if offset from straight up")]
     public float arrowOffsetAngle = -45f;
     [Tooltip("Speed at which the dial rotates")]
@@ -17,6 +17,7 @@ public class DialScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        dialArrow = GameObject.Find("DialArrow").GetComponent<Image>();
         SetDialAngle(0f);
 	}
 

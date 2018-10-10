@@ -12,6 +12,10 @@ public class PlayerController : MonoBehaviour
     private bool isgrounded = true;
     Rigidbody2D rb;
 
+    // Ben Shackman [2018-10-03] <bshackman@protonmail.com>
+    //Temp Variable to access character.cs
+    public Character characterScript;
+
     // Adam Giunta [9-20-18] <amgiunta.2016@mymail.becker.edu>
     public Weapon weapon;
     GameObject hand;
@@ -35,7 +39,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey("a"))
         {
-            transform.position = new Vector2(transform.position.x - movespeed, transform.position.y);
+            transform.position = new Vector2(transform.position.x - movespeed * characterScript.FearMultiplier, transform.position.y);
             /*could also do trasnform.position instead, design decision tho, that is more of a teleport*/
         }
         /*if (Input.GetKeyDown("space") && Input.GetKey("a") && isgrounded == false)
@@ -45,7 +49,7 @@ public class PlayerController : MonoBehaviour
         }*/
         if (Input.GetKey("d"))
         {
-            transform.position = new Vector2(transform.position.x + movespeed, transform.position.y);
+            transform.position = new Vector2(transform.position.x + movespeed * characterScript.FearMultiplier, transform.position.y);
         }
         /*if (Input.GetKeyDown("space") && Input.GetKey("d") && isgrounded == false)
         {
