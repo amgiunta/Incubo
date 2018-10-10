@@ -94,7 +94,6 @@
     <None Include="Assets\Resources\Sprites\temp.txt" />
     <None Include="Assets\Resources\Prefabs\temp.txt" />
     <Reference Include="UnityEditor.StandardEvents">
-<<<<<<< HEAD
       <HintPath>C:/Users/genlab/Documents/GitHub/Incubo/Incubo/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
@@ -105,18 +104,6 @@
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>C:/Users/genlab/Documents/GitHub/Incubo/Incubo/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
-=======
-      <HintPath>I:/GameStudio/Incubo Game/Incubo/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>I:/GameStudio/Incubo Game/Incubo/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>I:/GameStudio/Incubo Game/Incubo/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>I:/GameStudio/Incubo Game/Incubo/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
->>>>>>> 249350f268214d633dac578e67378a6dea94dbf6
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
