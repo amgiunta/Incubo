@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ using UnityEngine;
 /// <summary>
 /// This class stores all necessary stat information, and gets stats from a character. Use as a base for different character types.
 /// </summary>
+[Serializable]
 public class Character : MonoBehaviour {
 
     // [2018-09-25] Ben Shackman <bshackman@protonmail.com>
@@ -43,12 +45,19 @@ public class Character : MonoBehaviour {
     public FearStage fearStage;
     public float FearMultiplier = 1;
 
+    private Transform thisTransform;
+
     /// <summary>
     /// Gets the damage that this character should deal based off the base damage, and in-class damage mutiplier.
     /// </summary>
     /// <returns>An integer value of the damage to deal.</returns>
     public virtual int GetDamage() {
         return (int) (baseDamage * damageMultiplier);
+    }
+
+    private void Start()
+    {
+        thisTransform = transform;
     }
 
     /// <summary>
