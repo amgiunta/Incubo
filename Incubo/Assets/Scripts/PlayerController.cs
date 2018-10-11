@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        characterScript = GetComponent<Character>();
         rb = GetComponent<Rigidbody2D>();
         hand = transform.Find("Hand").gameObject;
         weapon = hand.GetComponentInChildren<Weapon>();

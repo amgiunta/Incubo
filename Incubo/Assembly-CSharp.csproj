@@ -76,7 +76,6 @@
     <Compile Include="Assets\Scripts\plagueProjectile.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Savegame\Checkpoint.cs" />
-    <Compile Include="Assets\Scripts\Savegame\SavedData.cs" />
     <Compile Include="Assets\Scripts\Scene\GameManager.cs" />
     <Compile Include="Assets\Scripts\Scene\LoadTrigger.cs" />
     <Compile Include="Assets\Scripts\startGame.cs" />
@@ -96,16 +95,16 @@
     <None Include="Assets\Resources\Sprites\temp.txt" />
     <None Include="Assets\Resources\Prefabs\temp.txt" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>E:/School/Semester 5/Game Studio fall 2018/incubo new/Incubo/Incubo/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>I:/School/Semester 5/Game Studio fall 2018/incubo new/Incubo/Incubo/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>E:/School/Semester 5/Game Studio fall 2018/incubo new/Incubo/Incubo/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>I:/School/Semester 5/Game Studio fall 2018/incubo new/Incubo/Incubo/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>E:/School/Semester 5/Game Studio fall 2018/incubo new/Incubo/Incubo/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>I:/School/Semester 5/Game Studio fall 2018/incubo new/Incubo/Incubo/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>E:/School/Semester 5/Game Studio fall 2018/incubo new/Incubo/Incubo/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>I:/School/Semester 5/Game Studio fall 2018/incubo new/Incubo/Incubo/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

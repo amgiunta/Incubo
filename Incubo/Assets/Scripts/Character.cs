@@ -57,7 +57,7 @@ public class Character : MonoBehaviour {
 
     private void Start()
     {
-        thisTransform = transform;
+        GameManager.SaveGame += SaveCharacterInfo;
     }
 
     /// <summary>
@@ -87,5 +87,10 @@ public class Character : MonoBehaviour {
     /// </summary>
     public virtual void Kill() {
         Destroy(gameObject);
+    }
+
+    public SavedData SaveCharacterInfo() {
+        SavedData data = new SavedData(GameManager.gameManager.GetTransformComponentHierarchy(gameObject));
+        return data;
     }
 }
