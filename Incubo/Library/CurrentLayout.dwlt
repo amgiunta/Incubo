@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 7}
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -504,7 +504,7 @@ MonoBehaviour:
     height: 550
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
-    scrollPos: {x: 0, y: 64}
+    scrollPos: {x: 0, y: 7691}
     m_SelectedIDs: 
     m_LastClickedID: 0
     m_ExpandedIDs: e6fbffff00000000
@@ -562,9 +562,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1732.8903, y: -507.6418, z: 22.279661}
+    m_Target: {x: 1339.5952, y: -451.63477, z: -62.720264}
     speed: 2
-    m_Value: {x: 1732.8903, y: -507.6418, z: 22.279661}
+    m_Value: {x: 1339.5952, y: -451.63477, z: -62.720264}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -596,15 +596,15 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: -1}
   m_Size:
-    m_Target: 418.67035
+    m_Target: 3118.4775
     speed: 2
-    m_Value: 418.67035
+    m_Value: 3118.4775
   m_Ortho:
     m_Target: 1
     speed: 2
     m_Value: 1
   m_ShowGlobalGrid: 1
-  m_LastSceneViewRotation: {x: -0.027049974, y: 0.13661735, z: -0.0037314796, w: -0.9902475}
+  m_LastSceneViewRotation: {x: -0.117485054, y: -0.13157772, z: 0.015706694, w: -0.9841941}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
