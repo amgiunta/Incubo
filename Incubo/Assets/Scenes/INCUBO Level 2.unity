@@ -355,7 +355,7 @@ Transform:
   m_LocalScale: {x: 13.856928, y: 9.969013, z: 9.969013}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 516
+  m_RootOrder: 518
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8247474
 GameObject:
@@ -8966,7 +8966,7 @@ Prefab:
     - target: {fileID: 224268249363725496, guid: 7d10c9f1991a4004492c90b149ff4c7b,
         type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 224268249363725496, guid: 7d10c9f1991a4004492c90b149ff4c7b,
         type: 2}
@@ -10044,7 +10044,7 @@ Prefab:
     - target: {fileID: 224268249363725496, guid: 7d10c9f1991a4004492c90b149ff4c7b,
         type: 2}
       propertyPath: m_RootOrder
-      value: 518
+      value: 519
       objectReference: {fileID: 0}
     - target: {fileID: 224268249363725496, guid: 7d10c9f1991a4004492c90b149ff4c7b,
         type: 2}
@@ -20138,7 +20138,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4943804468279754, guid: a453e6b5cacbf35478405c87c5aeaaa8, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4943804468279754, guid: a453e6b5cacbf35478405c87c5aeaaa8, type: 2}
       propertyPath: m_LocalScale.x
@@ -23804,7 +23804,7 @@ Transform:
   m_LocalScale: {x: 94.45328, y: 110.30157, z: 110.30157}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 518
+  m_RootOrder: 522
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &647798191
 GameObject:
@@ -25652,7 +25652,12 @@ Prefab:
     - target: {fileID: 50030996554110060, guid: 01fcb65ef9a0b4680abed2495bab0129,
         type: 2}
       propertyPath: m_Constraints
-      value: 5
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114633517989147080, guid: 01fcb65ef9a0b4680abed2495bab0129,
+        type: 2}
+      propertyPath: movespeed
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01fcb65ef9a0b4680abed2495bab0129, type: 2}
@@ -26910,7 +26915,7 @@ Prefab:
     - target: {fileID: 224268249363725496, guid: 7d10c9f1991a4004492c90b149ff4c7b,
         type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 224268249363725496, guid: 7d10c9f1991a4004492c90b149ff4c7b,
         type: 2}
@@ -32461,7 +32466,7 @@ Prefab:
     - target: {fileID: 224268249363725496, guid: 7d10c9f1991a4004492c90b149ff4c7b,
         type: 2}
       propertyPath: m_RootOrder
-      value: 519
+      value: 520
       objectReference: {fileID: 0}
     - target: {fileID: 224268249363725496, guid: 7d10c9f1991a4004492c90b149ff4c7b,
         type: 2}
@@ -50502,7 +50507,7 @@ Transform:
   m_LocalScale: {x: 13.856928, y: 9.969013, z: 9.969013}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 517
+  m_RootOrder: 521
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1524059142
 GameObject:
@@ -51113,7 +51118,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4606567346028600, guid: f3755e9b97b2d944f9bd79625e3136e3, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4606567346028600, guid: f3755e9b97b2d944f9bd79625e3136e3, type: 2}
       propertyPath: m_LocalScale.x
@@ -64684,6 +64689,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 284
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2022531075 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1937387971169392, guid: 01fcb65ef9a0b4680abed2495bab0129,
+    type: 2}
+  m_PrefabInternal: {fileID: 720420788}
+--- !u!114 &2022531080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2022531075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59c3433dbe0105b409906d86f93c9787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxFear: 30
+  currentFear: 0
+  baseDamage: 10
+  damageMultiplier: 2
+  fearStage: 0
+  FearMultiplier: 1
+  dialController: {fileID: 0}
+  fearTickTime: 1
+  fearRestoreTick: 1
+  enemyDistanceCheck: 10
+  scaredMoveMod: 1.2
+  terrifiedMoveMod: 1.4
 --- !u!1 &2035427013
 GameObject:
   m_ObjectHideFlags: 0
@@ -65461,7 +65494,7 @@ Prefab:
     - target: {fileID: 224164206440570550, guid: bc9dfce493451c844bbcbadb6f1d3513,
         type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 224164206440570550, guid: bc9dfce493451c844bbcbadb6f1d3513,
         type: 2}

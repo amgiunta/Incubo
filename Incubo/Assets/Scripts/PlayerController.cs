@@ -42,22 +42,13 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey("a"))
         {
             transform.position = new Vector2(transform.position.x - movespeed * characterScript.FearMultiplier, transform.position.y);
-            /*could also do trasnform.position instead, design decision tho, that is more of a teleport*/
         }
-        /*if (Input.GetKeyDown("space") && Input.GetKey("a") && isgrounded == false)
-        {
-            rb.AddForce(new Vector2(-dashspeed, 0));
-            StartCoroutine(dashtime());
-        }*/
+
         if (Input.GetKey("d"))
         {
             transform.position = new Vector2(transform.position.x + movespeed * characterScript.FearMultiplier, transform.position.y);
         }
-        /*if (Input.GetKeyDown("space") && Input.GetKey("d") && isgrounded == false)
-        {
-            rb.AddForce(new Vector2(dashspeed, 0));
-            StartCoroutine(dashtime());
-        }*/
+
         if (Input.GetKeyDown("w") && isgrounded == true)
             rb.AddForce(transform.up * jumpheight);
 
