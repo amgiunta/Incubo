@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CharaterSwap : MonoBehaviour {
-
+   
     public int swapped = 0;
     // Use this for initialization
     void Start () {
