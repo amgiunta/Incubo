@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     private bool isgrounded = true;
     Rigidbody2D rb;
 
+
     // Ben Shackman [2018-10-03] <bshackman@protonmail.com>
     //Temp Variable to access character.cs
     public Character characterScript;
@@ -21,9 +22,16 @@ public class PlayerController : MonoBehaviour
     public Weapon weapon;
     GameObject hand;
 
+    bool isright;
+    private Vector2 flip;
+    private Vector2 flipleft;
     // Use this for initialization
     void Start()
     {
+        flip = new Vector2(-transform.localScale.x, transform.localScale.y);
+        flipleft = new Vector2(transform.localScale.x, transform.localScale.y);
+        transform.localScale = flip;
+        isright = true;
         characterScript = GetComponent<Character>();
         rb = GetComponent<Rigidbody2D>();
         hand = transform.Find("Hand").gameObject;
@@ -42,11 +50,21 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey("a"))
         {
             transform.position = new Vector2(transform.position.x - movespeed * characterScript.FearMultiplier, transform.position.y);
+            if(isright == true)
+            {
+                transform.localScale = flipleft;
+                isright = false;
+            }
         }
 
         if (Input.GetKey("d"))
         {
             transform.position = new Vector2(transform.position.x + movespeed * characterScript.FearMultiplier, transform.position.y);
+            if(isright == false)
+            {
+                transform.localScale = flip;
+                isright = true;
+            }
         }
 
         if (Input.GetKeyDown("w") && isgrounded == true)
