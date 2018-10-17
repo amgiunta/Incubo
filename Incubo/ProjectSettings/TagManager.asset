@@ -13,6 +13,7 @@ TagManager:
   - Projectile
   - Centipede
   - Minipede
+  - SafeZone
   layers:
   - Default
   - TransparentFX
