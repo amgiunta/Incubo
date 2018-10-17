@@ -47,7 +47,8 @@ public class PlayerDamageController : Character {
         inSafeZone = false;
         InvokeRepeating("FearTicker", 0f, fearTickTime);
         //playerController = GetComponent<PlayerController>();
-        dialController = FindObjectOfType<DialScript>();
+        //dialController = FindObjectOfType<DialScript>();
+        dialController = DialScript.dialScript;
 	}
 
     public override void TakeDamage(int damage)

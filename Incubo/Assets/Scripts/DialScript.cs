@@ -8,6 +8,14 @@ using UnityEngine.UI;
 /// </summary>
 public class DialScript : MonoBehaviour {
 
+    public static DialScript dialScript;
+
+    private void Awake()
+    {
+        if(dialScript == null) { dialScript = this; }
+        else if(dialScript != null) { Destroy(gameObject); }
+    }
+
     Image dialArrow;
     [Tooltip("Angle at which the arrow if offset from straight up")]
     public float arrowOffsetAngle = -45f;
@@ -15,9 +23,12 @@ public class DialScript : MonoBehaviour {
     public float rotateSpeed = .1f;
     float finalAngle;
 
+    bool rotateRunning;
+
 	// Use this for initialization
 	void Start () {
         dialArrow = GameObject.Find("DialArrow").GetComponent<Image>();
+        rotateRunning = false;
         SetDialAngle(0f);
 	}
 
@@ -31,28 +42,29 @@ public class DialScript : MonoBehaviour {
         angle += arrowOffsetAngle; //Sets angle to final angle;
         
         finalAngle = angle;
-        StartCoroutine(SmoothRotate());
+        if(!rotateRunning) { StartCoroutine(SmoothRotate()); }
     }
 
     IEnumerator SmoothRotate()
     {
-        if (dialArrow.transform.rotation.z < finalAngle)
+        rotateRunning = true;
+
+        while (dialArrow.transform.rotation.z != finalAngle)
         {
             while (dialArrow.transform.rotation.z < finalAngle)
             {
                 dialArrow.transform.rotation = Quaternion.Slerp(dialArrow.transform.rotation, Quaternion.Euler(0, 0, finalAngle), rotateSpeed * Time.fixedDeltaTime);
-                yield return null;
+                yield return new WaitForEndOfFrame();
             }
-        }
-        else
-        {
             while (dialArrow.transform.rotation.z > finalAngle)
             {
                 dialArrow.transform.rotation = Quaternion.Slerp(dialArrow.transform.rotation, Quaternion.Euler(0, 0, finalAngle), rotateSpeed * Time.fixedDeltaTime);
-                yield return null;
+                yield return new WaitForEndOfFrame();
             }
         }
+
         dialArrow.transform.rotation = Quaternion.Euler(0, 0, finalAngle);
+        rotateRunning = false;
         yield return null;
     }
 }
