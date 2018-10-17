@@ -26,13 +26,16 @@ public class PlayerController : MonoBehaviour
     {
         characterScript = GetComponent<Character>();
         rb = GetComponent<Rigidbody2D>();
-        hand = transform.Find("Hand").gameObject;
+        if (!transform.Find("Hand")) { hand = Instantiate<GameObject>(new GameObject("Hand"), transform); }
+        else
+            hand = transform.Find("Hand").gameObject;
         weapon = hand.GetComponentInChildren<Weapon>();
     }
 
     // Adam Giunta [9-20-18] <amgiunta.2016@mymail.becker.edu>
     private void Update()
     {
+        if (Input.GetButtonDown("Cancel")) { MenuMaster.menuMaster.ToggleMenu(); }
         if (Input.GetButtonDown("Fire1")) { weapon.Attack(); }
     }
 
@@ -41,7 +44,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey("a"))
         {
-            transform.position = new Vector2(transform.position.x - movespeed * characterScript.FearMultiplier, transform.position.y);
+            transform.position = new Vector2(transform.position.x - movespeed * characterScript.fearMultiplier, transform.position.y);
             /*could also do trasnform.position instead, design decision tho, that is more of a teleport*/
         }
         /*if (Input.GetKeyDown("space") && Input.GetKey("a") && isgrounded == false)
@@ -51,7 +54,7 @@ public class PlayerController : MonoBehaviour
         }*/
         if (Input.GetKey("d"))
         {
-            transform.position = new Vector2(transform.position.x + movespeed * characterScript.FearMultiplier, transform.position.y);
+            transform.position = new Vector2(transform.position.x + movespeed * characterScript.fearMultiplier, transform.position.y);
         }
         /*if (Input.GetKeyDown("space") && Input.GetKey("d") && isgrounded == false)
         {

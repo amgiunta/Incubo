@@ -43,9 +43,7 @@ public class Character : MonoBehaviour {
     /// </summary>
     public OnTakeDamage onTakeDamage;
     public FearStage fearStage;
-    public float FearMultiplier = 1;
-
-    private Transform thisTransform;
+    public float fearMultiplier = 1;
 
     /// <summary>
     /// Gets the damage that this character should deal based off the base damage, and in-class damage mutiplier.
@@ -53,11 +51,6 @@ public class Character : MonoBehaviour {
     /// <returns>An integer value of the damage to deal.</returns>
     public virtual int GetDamage() {
         return (int) (baseDamage * damageMultiplier);
-    }
-
-    private void Start()
-    {
-        GameManager.SaveGame += SaveCharacterInfo;
     }
 
     /// <summary>
@@ -88,9 +81,39 @@ public class Character : MonoBehaviour {
     public virtual void Kill() {
         Destroy(gameObject);
     }
+}
 
-    public SavedData SaveCharacterInfo() {
-        SavedData data = new SavedData(GameManager.gameManager.GetTransformComponentHierarchy(gameObject));
-        return data;
+[Serializable]
+public class SerializableCharacter {
+    public int maxFear;
+    public int currentFear;
+    public int baseDamage;
+    public float damageMultiplier;
+    public float fearMultiplier;
+
+    public SerializableCharacter() { }
+
+    public SerializableCharacter(Character character) {
+        maxFear = character.maxFear;
+        currentFear = character.currentFear;
+        baseDamage = character.baseDamage;
+        damageMultiplier = character.damageMultiplier;
+        fearMultiplier = character.fearMultiplier;
+    }
+
+    public static implicit operator Character(SerializableCharacter s_char) {
+        Character character = new Character();
+        character.maxFear = s_char.maxFear;
+        character.currentFear = s_char.currentFear;
+        character.baseDamage = s_char.baseDamage;
+        character.damageMultiplier = s_char.damageMultiplier;
+        character.fearMultiplier = s_char.fearMultiplier;
+
+        return character;
+    }
+
+    public static implicit operator SerializableCharacter(Character character) {
+        SerializableCharacter s_char = new SerializableCharacter(character);
+        return s_char;
     }
 }

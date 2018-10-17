@@ -101,4 +101,9 @@ public class UIMenu : MonoBehaviour {
         if (pauseMenu) { Time.timeScale = 1; }
         Destroy(gameObject);
     }
+
+    private void OnDisable()
+    {
+        if (pauseMenu) { Time.timeScale = 1; }
+    }
 }

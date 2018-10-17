@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -44,6 +45,7 @@ public class PlayerDamageController : Character {
         inSafeZone = false;
         InvokeRepeating("FearTicker", 0f, fearTickTime);
         //playerController = GetComponent<PlayerController>();
+        dialController = FindObjectOfType<DialScript>();
 	}
 
     public override void TakeDamage(int damage)
@@ -135,13 +137,13 @@ public class PlayerDamageController : Character {
         switch(fearStage)
         {
             case FearStage.Fine:
-                FearMultiplier = 1;
+                fearMultiplier = 1;
                 break;
             case FearStage.Scared:
-                FearMultiplier = scaredMoveMod;
+                fearMultiplier = scaredMoveMod;
                 break;
             case FearStage.Terrified:
-                FearMultiplier = terrifiedMoveMod;
+                fearMultiplier = terrifiedMoveMod;
                 break;
         }
 
