@@ -70,7 +70,7 @@ public class Character : MonoBehaviour {
     }
 
     /// <summary>
-    /// Subtracts a value from this character's health and kills it if it gets too low.
+    /// Adds a value to the character's fear and kills them if their fear gets too high.
     /// </summary>
     /// <param name="damage">The amount of damage to inflict.</param>
     public virtual void TakeDamage(int damage) {
@@ -79,7 +79,7 @@ public class Character : MonoBehaviour {
         currentFear += damage;
         if (currentFear >= maxFear) { Kill(); }
         // Added temp debug.log function to show health
-        Debug.Log(currentFear + "/" + maxFear);
+        // Debug.Log(currentFear + "/" + maxFear);
     }
 
     /// <summary>

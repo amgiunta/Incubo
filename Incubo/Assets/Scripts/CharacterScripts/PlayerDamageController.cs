@@ -25,7 +25,9 @@ public class PlayerDamageController : Character {
 
     [Tooltip("This is the polling rate for fear. Note that all fear over time mechanics are tied to this.")]
     public float fearTickTime = 1f;
+    [Tooltip("This is how much fear is restored per fear tick.")]
     public int fearRestoreTick = 1;
+    [Tooltip("This controlls how far away from enemies the player must be to passively restore fear.")]
     public float enemyDistanceCheck = 10;
 
     //float currentHealth;
@@ -58,7 +60,8 @@ public class PlayerDamageController : Character {
     {
         if(collision.gameObject.CompareTag("Enemy"))
         {
-            Destroy(collision.gameObject);
+            //TESTCODE
+            collision.gameObject.GetComponent<Enemy>().TakeDamage(GetDamage());
         }
     }
 
@@ -77,6 +80,20 @@ public class PlayerDamageController : Character {
 
     void FearTicker()
     {
+        //Creates a list of all enemies within fear range
+        GameObject[] enemyList = GameObject.FindGameObjectsWithTag("Enemy");
+        List<GameObject> enemyWithinRangeList = new List<GameObject>();
+        if (enemyList.Length != 0)
+        {
+            foreach(GameObject enemy in enemyList)
+            {
+                if((Vector3.Distance(enemy.transform.position, transform.position) <= enemy.GetComponent<Enemy>().fearRange))
+                {
+                    enemyWithinRangeList.Add(enemy);
+                }
+            }
+        }
+
         //Fear Tick Code
         if(inFearZone)
         {
@@ -85,23 +102,25 @@ public class PlayerDamageController : Character {
             inFearZone = false;
         }
 
-        //Reduces fear if outside range of all enemies
-        float dist = enemyDistanceCheck + 1;
-        GameObject[] enemyList = GameObject.FindGameObjectsWithTag("Enemy");
-        if (enemyList.Length != 0)
+        
+        //Debug.Log(dist);
+        if (enemyWithinRangeList.Count == 0)
         {
-            foreach(GameObject enemy in enemyList)
+            if(currentFear > maxFear*.3f)
             {
-                float tempDist = Vector3.Distance(enemy.transform.position, transform.position);
-                if(tempDist < dist) { dist = tempDist; }
+                float excessRestore = 0;
+                if (currentFear - fearRestoreTick < maxFear * .3f) { excessRestore = -((currentFear - fearRestoreTick) - maxFear * .3f); }
+                ReduceFear(fearRestoreTick - (int)excessRestore);
             }
         }
-        //Debug.Log(dist);
-        if (dist > enemyDistanceCheck)
+        else
         {
-            ReduceFear(fearRestoreTick);
+            foreach(GameObject enemy in enemyWithinRangeList)
+            {
+                if (currentFear < maxFear / 2) { TakeDamage(enemy.GetComponent<Enemy>().fearTicks); }
+            }
         }
-        Debug.Log(fearStage);
+        //Debug.Log(fearStage);
 
         //Safezone Code
         if(inSafeZone)
@@ -109,6 +128,16 @@ public class PlayerDamageController : Character {
             ReduceFear(fearRestoreTick);
             inSafeZone = false;
         }
+    }
+
+    // Note, to override something in playerCharcter.cs when we make that class
+    /// <summary>
+    /// To be called when ever an enemy is killed.
+    /// </summary>
+    /// <param name="restoreValue"></param>
+    public void OnEnemyKill(int restoreValue)
+    {
+        ReduceFear(restoreValue);
     }
 
     /// <summary>

@@ -25659,6 +25659,11 @@ Prefab:
       propertyPath: movespeed
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114633517989147080, guid: 01fcb65ef9a0b4680abed2495bab0129,
+        type: 2}
+      propertyPath: characterScript
+      value: 
+      objectReference: {fileID: 2022531080}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01fcb65ef9a0b4680abed2495bab0129, type: 2}
   m_IsPrefabAsset: 0
@@ -63673,6 +63678,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1455097042154008, guid: 81c05648fee1853469595c5957aa40f0, type: 2}
+      propertyPath: m_Name
+      value: DialArrow
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81c05648fee1853469595c5957aa40f0, type: 2}
   m_IsPrefabAsset: 0
@@ -64716,7 +64725,7 @@ MonoBehaviour:
   damageMultiplier: 2
   fearStage: 0
   FearMultiplier: 1
-  dialController: {fileID: 0}
+  dialController: {fileID: 2107089692}
   fearTickTime: 1
   fearRestoreTick: 1
   enemyDistanceCheck: 10
@@ -67260,6 +67269,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2107089692 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114106485226697402, guid: 81c05648fee1853469595c5957aa40f0,
+    type: 2}
+  m_PrefabInternal: {fileID: 2006801855}
+  m_Script: {fileID: 11500000, guid: ef1ee252f98cea14693e09606909003c, type: 3}
 --- !u!1 &2116327386
 GameObject:
   m_ObjectHideFlags: 0
