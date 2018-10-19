@@ -12,6 +12,10 @@ public class PlayerController : MonoBehaviour
     //public float dashspeed;
     private bool isgrounded = true;
     Rigidbody2D rb;
+    public Vector2 playerSpeed;
+    private Vector3 lastFrame;
+
+
 
     // Ben Shackman [2018-10-03] <bshackman@protonmail.com>
     //Temp Variable to access character.cs
@@ -21,42 +25,57 @@ public class PlayerController : MonoBehaviour
     public Weapon weapon;
     GameObject hand;
 
+    bool isright;
+    private Vector2 flip;
+    private Vector2 flipleft;
     // Use this for initialization
     void Start()
     {
+        flip = new Vector2(-transform.localScale.x, transform.localScale.y);
+        flipleft = new Vector2(transform.localScale.x, transform.localScale.y);
+        transform.localScale = flip;
+        isright = true;
+        characterScript = GetComponent<Character>();
         rb = GetComponent<Rigidbody2D>();
-        hand = transform.Find("Hand").gameObject;
+        if (!transform.Find("Hand")) { hand = Instantiate<GameObject>(new GameObject("Hand"), transform); }
+        else
+            hand = transform.Find("Hand").gameObject;
         weapon = hand.GetComponentInChildren<Weapon>();
     }
 
     // Adam Giunta [9-20-18] <amgiunta.2016@mymail.becker.edu>
     private void Update()
     {
+        playerSpeed = (transform.position - lastFrame) / Time.deltaTime;
+        if (Input.GetButtonDown("Cancel")) { MenuMaster.menuMaster.ToggleMenu(); }
         if (Input.GetButtonDown("Fire1")) { weapon.Attack(); }
+        lastFrame = transform.position;
     }
 
     // Update is called once per frame
     private void FixedUpdate()
     {
+
         if (Input.GetKey("a"))
         {
-            transform.position = new Vector2(transform.position.x - movespeed * characterScript.FearMultiplier, transform.position.y);
-            /*could also do trasnform.position instead, design decision tho, that is more of a teleport*/
+            transform.position = new Vector2(transform.position.x - movespeed * characterScript.fearMultiplier, transform.position.y);
+            if(isright == true)
+            {
+                transform.localScale = flipleft;
+                isright = false;
+            }
         }
-        /*if (Input.GetKeyDown("space") && Input.GetKey("a") && isgrounded == false)
-        {
-            rb.AddForce(new Vector2(-dashspeed, 0));
-            StartCoroutine(dashtime());
-        }*/
+
         if (Input.GetKey("d"))
         {
-            transform.position = new Vector2(transform.position.x + movespeed * characterScript.FearMultiplier, transform.position.y);
+            transform.position = new Vector2(transform.position.x + movespeed * characterScript.fearMultiplier, transform.position.y);
+            if(isright == false)
+            {
+                transform.localScale = flip;
+                isright = true;
+            }
         }
-        /*if (Input.GetKeyDown("space") && Input.GetKey("d") && isgrounded == false)
-        {
-            rb.AddForce(new Vector2(dashspeed, 0));
-            StartCoroutine(dashtime());
-        }*/
+
         if (Input.GetKeyDown("w") && isgrounded == true)
             rb.AddForce(transform.up * jumpheight);
 
@@ -65,6 +84,7 @@ public class PlayerController : MonoBehaviour
             MenuMaster.menuMaster.ToggleMenu();
             MenuMaster.menuMaster.OpenMenu("Pause Screen");
         }
+
     }
     /*IEnumerator dashtime()
     {

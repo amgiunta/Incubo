@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ using UnityEngine;
 /// <summary>
 /// This class stores all necessary stat information, and gets stats from a character. Use as a base for different character types.
 /// </summary>
+[Serializable]
 public class Character : MonoBehaviour {
 
     // [2018-09-25] Ben Shackman <bshackman@protonmail.com>
@@ -41,8 +43,26 @@ public class Character : MonoBehaviour {
     /// </summary>
     public OnTakeDamage onTakeDamage;
     public FearStage fearStage;
-    public float FearMultiplier = 1;
-
+    public float fearMultiplier = 1;
+    private Animator playerAnim;
+    private PlayerController Controller;
+    private void Start()
+    {
+        playerAnim = GetComponent<Animator>();
+        Controller = GetComponent<PlayerController>();
+    }
+    private void FixedUpdate()
+    {
+        if (playerAnim != null)
+        {
+            if (Controller.playerSpeed.x != 0 && Controller.playerSpeed.y == 0)
+            {
+                playerAnim.SetTrigger("walking");
+            }
+            else if (Controller.playerSpeed.magnitude == 0)
+                playerAnim.SetTrigger("idle");
+        }
+    }
     /// <summary>
     /// Gets the damage that this character should deal based off the base damage, and in-class damage mutiplier.
     /// </summary>
@@ -61,7 +81,7 @@ public class Character : MonoBehaviour {
     }
 
     /// <summary>
-    /// Subtracts a value from this character's health and kills it if it gets too low.
+    /// Adds a value to the character's fear and kills them if their fear gets too high.
     /// </summary>
     /// <param name="damage">The amount of damage to inflict.</param>
     public virtual void TakeDamage(int damage) {
@@ -70,7 +90,7 @@ public class Character : MonoBehaviour {
         currentFear += damage;
         if (currentFear >= maxFear) { Kill(); }
         // Added temp debug.log function to show health
-        Debug.Log(currentFear + "/" + maxFear);
+        // Debug.Log(currentFear + "/" + maxFear);
     }
 
     /// <summary>
@@ -78,5 +98,40 @@ public class Character : MonoBehaviour {
     /// </summary>
     public virtual void Kill() {
         Destroy(gameObject);
+    }
+}
+
+[Serializable]
+public class SerializableCharacter {
+    public int maxFear;
+    public int currentFear;
+    public int baseDamage;
+    public float damageMultiplier;
+    public float fearMultiplier;
+
+    public SerializableCharacter() { }
+
+    public SerializableCharacter(Character character) {
+        maxFear = character.maxFear;
+        currentFear = character.currentFear;
+        baseDamage = character.baseDamage;
+        damageMultiplier = character.damageMultiplier;
+        fearMultiplier = character.fearMultiplier;
+    }
+
+    public static implicit operator Character(SerializableCharacter s_char) {
+        Character character = new Character();
+        character.maxFear = s_char.maxFear;
+        character.currentFear = s_char.currentFear;
+        character.baseDamage = s_char.baseDamage;
+        character.damageMultiplier = s_char.damageMultiplier;
+        character.fearMultiplier = s_char.fearMultiplier;
+
+        return character;
+    }
+
+    public static implicit operator SerializableCharacter(Character character) {
+        SerializableCharacter s_char = new SerializableCharacter(character);
+        return s_char;
     }
 }

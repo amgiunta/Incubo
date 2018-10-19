@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 // [9-21-19] Adam Giunta <amgiunta.2016@mymail.becker.edu>
 /// <summary>
 /// A general Weapon class to inherit from. Provides all basic weapon functionality.
 /// </summary>
+[Serializable]
 public class Weapon : MonoBehaviour {
 
     [Tooltip("The layers that this weapon will affect.")]
