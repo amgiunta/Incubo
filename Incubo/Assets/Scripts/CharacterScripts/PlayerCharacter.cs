@@ -41,7 +41,7 @@ public class PlayerCharacter : Character {
     //PlayerController playerController;
 
 	// Use this for initialization
-	public override void Start () {
+	void Start () {
         currentFear = 0;
         inFearZone = false;
         inSafeZone = false;
@@ -49,14 +49,7 @@ public class PlayerCharacter : Character {
         //playerController = GetComponent<PlayerController>();
         //dialController = FindObjectOfType<DialScript>();
         dialController = DialScript.dialScript;
-
-        base.Start();
 	}
-
-    public override void FixedUpdate()
-    {
-        base.FixedUpdate();
-    }
 
     public override void TakeDamage(int damage)
     {

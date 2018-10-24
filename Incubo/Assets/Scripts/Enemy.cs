@@ -36,7 +36,7 @@ public class Enemy : Character {
     //Note, probobly needs a refactor
     public override void Kill()
     {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDamageController>().OnEnemyKill(restoreOnDeath);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCharacter>().OnEnemyKill(restoreOnDeath);
         base.Kill();
     }
 }

@@ -126,8 +126,8 @@ GameObject:
   - component: {fileID: 63584293}
   - component: {fileID: 63584292}
   - component: {fileID: 63584298}
-  - component: {fileID: 63584299}
   - component: {fileID: 63584297}
+  - component: {fileID: 63584299}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -253,7 +253,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movespeed: 0.1
   jumpheight: 200
-  characterScript: {fileID: 63584299}
+  playerSpeed: {x: 0, y: 0}
+  characterScript: {fileID: 0}
   weapon: {fileID: 0}
 --- !u!61 &63584298
 BoxCollider2D:
@@ -288,7 +289,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 63584291}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59c3433dbe0105b409906d86f93c9787, type: 3}
+  m_Script: {fileID: 11500000, guid: fc8a69b8a75c3f640807edb3c0120429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxFear: 100
@@ -299,8 +300,8 @@ MonoBehaviour:
   fearMultiplier: 1
   dialController: {fileID: 0}
   fearTickTime: 1
-  fearRestoreTick: 5
-  enemyDistanceCheck: 6
+  fearRestoreTick: 1
+  enemyDistanceCheck: 10
   scaredMoveMod: 1.2
   terrifiedMoveMod: 1.4
 --- !u!1 &238908556

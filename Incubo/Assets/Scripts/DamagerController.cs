@@ -17,7 +17,7 @@ public class DamagerController : MonoBehaviour {
             //damaged.TakeDamage(damageDealt);
             if(invulnWindow == false)
             {
-                collision.gameObject.GetComponent<PlayerDamageController>().TakeDamage(damageDealt);
+                collision.gameObject.GetComponent<PlayerCharacter>().TakeDamage(damageDealt);
                 invulnWindow = true;
                 StartCoroutine(playerInvulnWindow());
             }
@@ -33,7 +33,7 @@ public class DamagerController : MonoBehaviour {
             //damaged.TakeDamage(damageDealt);
             if (invulnWindow == false)
             {
-                collision.gameObject.GetComponent<PlayerDamageController>().TakeDamage(damageDealt);
+                collision.gameObject.GetComponent<PlayerCharacter>().TakeDamage(damageDealt);
                 invulnWindow = true;
                 StartCoroutine(playerInvulnWindow());
             }

@@ -68,7 +68,7 @@
     <Compile Include="Assets\Scripts\CentipedeAI.cs" />
     <Compile Include="Assets\Scripts\Character.cs" />
     <Compile Include="Assets\Scripts\CharacterScripts\CharaterSwap.cs" />
-    <Compile Include="Assets\Scripts\CharacterScripts\PlayerDamageController.cs" />
+    <Compile Include="Assets\Scripts\CharacterScripts\PlayerCharacter.cs" />
     <Compile Include="Assets\Scripts\DamagerController.cs" />
     <Compile Include="Assets\Scripts\DialScript.cs" />
     <Compile Include="Assets\Scripts\DoorTrigger.cs" />
