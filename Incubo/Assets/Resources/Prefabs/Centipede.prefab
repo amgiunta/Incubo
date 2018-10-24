@@ -30,7 +30,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1523108168985006
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,8 +154,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f8154721a5cc246ae0c3f843a5b7d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxFear: 0
+  currentFear: 0
+  baseDamage: 0
+  damageMultiplier: 0
+  fearStage: 0
+  fearMultiplier: 1
+  agroRange: 35
+  fearRange: 0
+  fearTicks: 0
+  restoreOnDeath: 0
   target: {fileID: 0}
-  pursueRange: 35
   distanceToTarget: 0
   lungeRange: 20
   lungeDelay: 3

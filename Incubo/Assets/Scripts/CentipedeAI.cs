@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CentipedeAI : MonoBehaviour {
+//Ben Shackman <2018-10-23> - Modified to work
+public class CentipedeAI : Enemy {
 
     public Transform target;
-    public float pursueRange;
+    //public float pursueRange;
     public float distanceToTarget;
 
     public float lungeRange;
@@ -21,7 +22,7 @@ public class CentipedeAI : MonoBehaviour {
     public float speed;
     public Transform spawnTwo;
 
-    public int Health = 1;
+    //public int Health = 1;
     // Use this for initialization
     void Start()
     {
@@ -35,7 +36,7 @@ public class CentipedeAI : MonoBehaviour {
         lungeHeight = Random.Range(1.0f, 2.0f);
         distanceToTarget = Vector3.Distance(transform.position, target.position);
         flip();
-        if (distanceToTarget < pursueRange && distanceToTarget > lungeRange && distanceToTarget > biteRange  )
+        if (distanceToTarget < agroRange && distanceToTarget > lungeRange && distanceToTarget > biteRange  )
         {
             Pursue();
         }
@@ -47,16 +48,18 @@ public class CentipedeAI : MonoBehaviour {
         {
             Bite();
         }
+        /*
         if (Health <= 0)
         {
             Death();
         }
+        */
         
     }
 
     void Pursue()
     {
-        if (distanceToTarget < pursueRange)
+        if (distanceToTarget < agroRange)
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
@@ -103,18 +106,27 @@ public class CentipedeAI : MonoBehaviour {
             transform.localScale = new Vector3(-3, 1, 1);
         }
     }
+    /*
     void Death()
     {
         Instantiate(baby, transform.position, transform.rotation);
         Instantiate(baby, spawnTwo.position, transform.rotation);
         Destroy(this.gameObject);
     }
+    */
+
+    public override void Kill()
+    {
+        Instantiate(baby, transform.position, transform.rotation);
+        Instantiate(baby, spawnTwo.position, transform.rotation);
+        base.Kill();
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Health = -1;
+            this.TakeDamage(1);
         }
     }
 }
