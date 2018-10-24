@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/Door Open Test.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 0
+    path: Assets/Scenes/Scene Swap Test.unity
+    guid: 5a32ce962fccdc44ebcd2ba3019b1c96
+  - enabled: 1
+    path: Assets/Scenes/mainMenu.unity
+    guid: 32511ef8a102fcf43b257b0a0a8e2e1e
+  - enabled: 1
+    path: Assets/Scenes/MenuTest.unity
+    guid: 5cbc6584028e5ff4ca055c0642655dd7
+  - enabled: 0
+    path: Assets/Scenes/Level 1.unity
+    guid: e18b357bb6d827a4b8fd64a5867d4b40
+  - enabled: 1
+    path: Assets/Scenes/Persistance Test.unity
+    guid: 8773939432d736242916f6f0188cbcc9
+  m_configObjects: {}

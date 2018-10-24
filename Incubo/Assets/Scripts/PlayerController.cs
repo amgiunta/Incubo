@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour
     //public float dashspeed;
     private bool isgrounded = true;
     Rigidbody2D rb;
+    public Vector2 playerSpeed;
+    private Vector3 lastFrame;
+
 
 
     // Ben Shackman [2018-10-03] <bshackman@protonmail.com>
@@ -43,13 +46,16 @@ public class PlayerController : MonoBehaviour
     // Adam Giunta [9-20-18] <amgiunta.2016@mymail.becker.edu>
     private void Update()
     {
+        playerSpeed = (transform.position - lastFrame) / Time.deltaTime;
         if (Input.GetButtonDown("Cancel")) { MenuMaster.menuMaster.ToggleMenu(); }
         if (Input.GetButtonDown("Fire1")) { weapon.Attack(); }
+        lastFrame = transform.position;
     }
 
     // Update is called once per frame
     private void FixedUpdate()
     {
+
         if (Input.GetKey("a"))
         {
             transform.position = new Vector2(transform.position.x - movespeed * characterScript.fearMultiplier, transform.position.y);
@@ -78,6 +84,7 @@ public class PlayerController : MonoBehaviour
             MenuMaster.menuMaster.ToggleMenu();
             MenuMaster.menuMaster.OpenMenu("Pause Screen");
         }
+
     }
     /*IEnumerator dashtime()
     {

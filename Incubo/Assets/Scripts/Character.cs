@@ -44,7 +44,25 @@ public class Character : MonoBehaviour {
     public OnTakeDamage onTakeDamage;
     public FearStage fearStage;
     public float fearMultiplier = 1;
-
+    private Animator playerAnim;
+    private PlayerController Controller;
+    private void Start()
+    {
+        playerAnim = GetComponent<Animator>();
+        Controller = GetComponent<PlayerController>();
+    }
+    private void FixedUpdate()
+    {
+        if (playerAnim != null)
+        {
+            if (Controller.playerSpeed.x != 0 && Controller.playerSpeed.y == 0)
+            {
+                playerAnim.SetTrigger("walking");
+            }
+            else if (Controller.playerSpeed.magnitude == 0)
+                playerAnim.SetTrigger("idle");
+        }
+    }
     /// <summary>
     /// Gets the damage that this character should deal based off the base damage, and in-class damage mutiplier.
     /// </summary>

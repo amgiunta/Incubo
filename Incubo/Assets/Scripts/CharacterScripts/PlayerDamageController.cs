@@ -186,5 +186,6 @@ public class PlayerDamageController : Character {
         {
             TakeDamage(100);
         }
+        
 	}
 }
